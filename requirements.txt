@@ -1,0 +1,99 @@
+# botocore==1.20.72
+# APScheduler==3.7.0
+# AppKit==0.2.8
+# BeautifulSoup==3.2.2
+# beautifulsoup4==4.9.3
+# blinker==1.4
+# cairocffi==1.2.0
+# cElementTree==1.0.2-20050302
+# cftime==1.5.0
+# contextvars==2.4
+# conversion==0.0.7
+# coverage==5.5
+# dask==2021.6.2
+# elementtree==1.2.6-20050316
+# fastparquet==0.6.3
+# Foundation==0.1.0a0.dev1
+# fsspec==2021.6.1
+# gdb==0.0.1
+# genapi==0.0.8
+# gevent==21.1.2
+# greenlet==1.1.0
+# hypothesis==6.14.0
+# ipykernel==5.5.5
+# ipython==7.24.1
+# jedi==0.18.0
+# kiwisolver==1.3.1
+# mtrand==0.1
+# nose==1.3.7
+# numarray==1.5.1
+# Numeric==24.2
+# numexpr==2.7.3
+# odfpy==1.4.1
+# olefile==0.46
+# openpyxl==3.0.7
+# Parser==0.1
+# pg8000==1.19.5
+# pickle5==0.0.11
+# pluggy==0.13.1
+# psutil==5.8.0
+# psycopg2==2.9.1
+# pyarrow==4.0.1
+# pycares==4.0.0
+# pycurl==7.43.0.6
+# Pygments==2.9.0
+# pymysql==1.0.2
+# PyQt4==4.11.4
+# PyQt5==5.15.4
+# PyQt6==6.1.1
+# PySide==1.2.4
+# PySide2==5.15.2
+# PySide6==6.1.1
+# pytest==6.2.4
+# python_bcrypt==0.3.2
+# pythran==0.9.11
+# pyxlsb==1.0.8
+# qtpy==1.9.0
+# recommonmark==0.7.1
+# s3fs==2021.6.1
+# scikit_learn==0.24.2
+# scipy==1.7.0
+# secrets==1.0.2
+# secretstorage==3.3.1
+# shiboken==1.2.2
+# shiboken2==5.15.2
+# simplejson==3.17.2
+# sip==6.1.1
+# Sphinx==4.0.2
+# SQLAlchemy==1.4.19
+# statsmodels==0.12.2
+# timestamps==1.3.0
+# watchdog==2.1.2
+# xarray==0.18.2
+# xlrd==2.0.1
+# xlsxwriter==1.4.3
+# xlwt==1.3.0
+
+
+lxml==4.6.1
+pandas==1.1.5
+keyring==21.4.0
+zipp==3.4.1
+numpy==1.19.5
+importlib_metadata==3.10.0
+brotli==1.0.9
+cryptography==3.4.7
+Cython==0.29.23
+docutils==0.17.1
+lockfile==0.12.2
+matplotlib==3.3.4
+monotonic==1.6
+ordereddict==1.1
+protobuf==3.17.3
+pyOpenSSL==20.0.1
+tornado==6.1
+wincertstore==0.2
+python-dateutil>=0.0.0
+Flask==0.12.2
+requests>=2.20.1
+Flask-Compress==1.4.0
