@@ -1,0 +1,11 @@
+*.pyc
+
+.vscode
+.vscode-backup
+.idea
+
+.tool-versions
+.venv
+
+metrics
+vscode_debug_app.py
