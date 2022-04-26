@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  app_grafico_pre_processamento:
+    build:
+      context: .
+    container_name: app_grafico_pre_processamento
+    ports:
+      - "5011:5011"
+    volumes:
+      - .:/code
+    environment:
+      - PLATFORM_URL=host.docker.internal
+    entrypoint: /bin/sh
+    command:  -c "python3 app_grafico_pre_processamento.py"
+  
+  app_classificacao_variant:
+    build:
+      context: .
+    container_name: app_classificacao_variant
+    ports:
+      - "5002:5002"
+    volumes:
+      - .:/code
+    environment:
+      - PLATFORM_URL=host.docker.internal
+    entrypoint: /bin/sh
+    command:  -c "python3 app_classificacao_variant.py"
+  
+  app_pre_processamento_output_maf:
+    build:
+      context: .
+    container_name: app_pre_processamento_output_maf
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/code
+    environment:
+      - PLATFORM_URL=host.docker.internal
+    entrypoint: /bin/sh
+    command:  -c "python3 app_pre_processamento_output_maf.py"
+    

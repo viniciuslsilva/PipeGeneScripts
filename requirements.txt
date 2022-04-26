@@ -1,5 +1,5 @@
 # botocore==1.20.72
-# APScheduler==3.7.0
+APScheduler==3.7.0
 # AppKit==0.2.8
 # BeautifulSoup==3.2.2
 # beautifulsoup4==4.9.3
@@ -75,7 +75,7 @@
 # xlwt==1.3.0
 
 
-lxml==4.6.1
+lxml==4.8.0
 pandas==1.1.5
 keyring==21.4.0
 zipp==3.4.1

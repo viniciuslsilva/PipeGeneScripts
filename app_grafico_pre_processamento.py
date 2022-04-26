@@ -11,6 +11,8 @@ from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from queue import Queue
 import tempfile
 
+PLATFORM_URL = os.getenv('PLATFORM_URL', "localhost")
+
 tasks = Queue()
 
 executors = {
@@ -31,7 +33,7 @@ def job():
             print(execution_id)
             print(step_id)
             print(filename)
-            url = "http://localhost:8080/api/v1/providers/{}/executions/{}/steps/{}".format(PROVIDER_ID, execution_id, step_id)
+            url = "http://{}:8080/api/v1/providers/{}/executions/{}/steps/{}".format(PLATFORM_URL, PROVIDER_ID, execution_id, step_id)
             headers = {}
             payload = {
                 "status": "SUCCESS",
@@ -56,6 +58,11 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 PROVIDER_ID = "78cec5db-6396-4fd9-803f-1fd469d76312"
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 
+# 
+# A ideia desse serviço é receber um input e como output vai devolver um png
+# com o resultado do pre processamento, esse serviço está salvo na base com
+# PROVIDER_ID=78cec5db-6396-4fd9-803f-1fd469d76312
+#
 @app.route('/v1/pipegine/provider/process', methods=['POST'])
 def upload():
     execution_id = request.headers.get("x-pipegene-execution-id")
@@ -98,4 +105,8 @@ def hello():
     return 'hello'
     
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5011)
+    address = "0.0.0.0" if os.getenv('PLATFORM_URL') != None else "127.0.0.1"
+
+    print(address)
+
+    app.run(host=address, port=5011)

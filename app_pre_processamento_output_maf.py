@@ -11,6 +11,8 @@ from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 from queue import Queue
 import tempfile
 
+PLATFORM_URL = os.getenv('PLATFORM_URL', "localhost")
+
 tasks = Queue()
 
 executors = {
@@ -31,7 +33,7 @@ def job():
             print(execution_id)
             print(step_id)
             print(filename)
-            url = "http://localhost:8080/api/v1/providers/{}/executions/{}/steps/{}".format(PROVIDER_ID, execution_id, step_id)
+            url = "http://{}:8080/api/v1/providers/{}/executions/{}/steps/{}".format(PLATFORM_URL, PROVIDER_ID, execution_id, step_id)
             headers = {}
             payload = {
                 "status": "SUCCESS",
@@ -57,6 +59,11 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
 PROVIDER_ID = "e8bf42e4-2ffc-4935-a546-ee5d9263f419"
 
+# 
+# A ideia desse serviço é receber um input e como output vai devolver um maf
+# com o resultado do pre processamento que será utilizado como input de uma proxima etapa
+# esse serviço está salvo na base com PROVIDER_ID=e8bf42e4-2ffc-4935-a546-ee5d9263f419
+#
 
 @app.route('/v1/pipegine/provider/process', methods=['POST'])
 def upload():
@@ -97,4 +104,6 @@ def hello():
     return 'hello'
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5001)
+    address = "0.0.0.0" if os.getenv('PLATFORM_URL') != None else "127.0.0.1"
+    print(address)
+    app.run(host=address, port=5001)
